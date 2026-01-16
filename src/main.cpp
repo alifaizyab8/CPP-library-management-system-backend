@@ -1,25 +1,24 @@
 #include <iostream>
-#include "domain/Book.h"
 #include "repositories/InMemoryBookRepository.h"
+#include "repositories/InMemoryLoanRepository.h"
+#include "services/BorrowService.h"
 
 int main()
 {
-    Book book(
-        "Clean Code",
-        "Robert C. Martin",
-        "9780132350884");
+    InMemoryBookRepository bookRepo;
+    InMemoryLoanRepository loanRepo;
 
-    // std::cout << book.getTitle() << "\n";
-    // std::cout << book.getAuthor() << "\n";
-    // std::cout << book.getISBN() << "\n";
-
-    InMemoryBookRepository repo;
-    repo.add(book);
-
-    const Book *b1;
-    b1 = repo.findByISBN("9780132350884");
-    if (b1)
+    BorrowService service(bookRepo,loanRepo);
+    Book book("Program","Ali","111");
+    bookRepo.add(book);
+    try
     {
-        std ::cout << b1->getTitle();
+        service.borrowBook("111","User_1");
+        service.borrowBook("111","User_2");
     }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }
