@@ -4,4 +4,5 @@ class AuthorizationService
 {
 public:
     void ensureLibrarian(const User &user) const;
+    
 };
