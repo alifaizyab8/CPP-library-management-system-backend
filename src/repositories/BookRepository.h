@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "../domain/Book.h"
+#include "domain/Book.h"
 
 class BookRepository
 {

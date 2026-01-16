@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "../domain/Loan.h"
+#include "domain/Loan.h"
 
 class LoanRepository
 {

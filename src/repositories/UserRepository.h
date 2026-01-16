@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "../domain/User.h"
+#include "domain/User.h"
 class UserRepository
 {
 public:

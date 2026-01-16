@@ -1,7 +1,7 @@
 #pragma once
-#include "../repositories/BookRepository.h"
-#include "../repositories/LoanRepository.h"
-#include "../repositories/UserRepository.h"
+#include "repositories/BookRepository.h"
+#include "repositories/LoanRepository.h"
+#include "repositories/UserRepository.h"
 
 class BorrowService
 {
