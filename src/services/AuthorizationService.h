@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 #include "domain/User.h"
 class AuthorizationService
 {
