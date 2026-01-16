@@ -10,6 +10,7 @@ private:
     std ::string isbn;
 
 public:
+    ~Book() = default;
     Book(std ::string title, std ::string author, std ::string isbn);
     const std ::string &getTitle() const;
     const std ::string &getAuthor() const;
