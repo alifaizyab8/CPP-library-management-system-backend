@@ -13,7 +13,7 @@ void SqliteBookRepository ::createTableIfNotExists() const
         "CREATE TABLE IF NOT EXISTS books("
         "isbn TEXT PRIMARY KEY, "
         "title TEXT NOT NULL, "
-        "author TEXT NOT NULL, ";
+        "author TEXT NOT NULL);";
 
     char *errorMsg = nullptr;
     int rc = sqlite3_exec(db->getDbHandle(), sqlCode, nullptr, nullptr, &errorMsg);
