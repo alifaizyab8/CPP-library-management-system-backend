@@ -16,14 +16,14 @@ private:
     std ::string title;
     std ::string author;
     std ::string isbn;
-    bookLocation locator;
+    bookLocation location;
 
 public:
     ~Book() = default;
-    Book(std ::string title, std ::string author, std ::string isbn, bookLocation locator);
+    Book(std ::string title, std ::string author, std ::string isbn, bookLocation location);
     // Getters
     const std ::string &getTitle() const;
     const std ::string &getAuthor() const;
     const std ::string &getISBN() const;
-    const std::string &getLocation() const;
+    const bookLocation &getLocation() const;
 };
