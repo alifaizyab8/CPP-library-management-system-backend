@@ -15,7 +15,7 @@ public:
     ~Loan() = default;
     Loan(std ::string id, std::string isbn, std ::string userID, std::string issueDate);
 
-    void markReturned(std::string date) const;
+    void markReturned(std::string date);
     bool isActive() const; // Returns true if return date is empty meaning book is still issued
 
     const std::string &getID() const;
