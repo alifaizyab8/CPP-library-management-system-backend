@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <utility>
-#include <optional>
+#include <optional> // used for data that might be null 
 
 class Loan
 {

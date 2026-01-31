@@ -21,7 +21,7 @@ int main()
     std::cout << "Book saved to database file successfully.\n\n";
 
     std::cout << "--- Retrieving Book from SQLite ---\n";
-    const Book *b1 = repo.findByISBN("9780132350084");
+    const Book *b1 = repo.findByISBN("9780132350884");
     
     if (b1)
     {
