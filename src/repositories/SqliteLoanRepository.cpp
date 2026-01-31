@@ -142,3 +142,32 @@ void SqliteLoanRepository::update(const Loan &loan)
     }
     sqlite3_finalize(stmt);
 }
+
+std::optional<Loan> SqliteLoanRepository::getActiveLoanByISBN(const std::string &isbn) const
+{
+
+    const char *sqlCode = "SELECT id, book_isbn, user_id, issue_date, return_date FROM loans WHERE book_isbn = ? AND return_date IS NULL;";
+
+    sqlite3_stmt *stmt = nullptr;
+    if (sqlite3_prepare_v2(db->getDbHandle(), sqlCode, -1, &stmt, nullptr) != SQLITE_OK)
+        return std::nullopt;
+
+    sqlite3_bind_text(stmt, 1, isbn.c_str(), -1, SQLITE_TRANSIENT);
+
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        std::string id = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 0));
+        std::string bookIsbn = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 1));
+        std::string userId = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 2));
+        std::string issueDate = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 3));
+
+        Loan loan(id, bookIsbn, userId, issueDate);
+        // We don't check return_date column here because we specifically queried for NULL
+
+        sqlite3_finalize(stmt);
+        return loan;
+    }
+
+    sqlite3_finalize(stmt);
+    return std::nullopt;
+}
