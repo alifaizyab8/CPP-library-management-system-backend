@@ -33,7 +33,3 @@ void Loan::markReturned(std::string date)
 {
     returnDate = std::move(date);
 }
-std ::optional<std::string> Loan::getReturnDate() const
-{
-    return returnDate;
-}
