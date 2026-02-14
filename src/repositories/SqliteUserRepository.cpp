@@ -13,7 +13,7 @@ void SqliteUserRepository ::createTableIfNotExists() const
         "CREATE TABLE IF NOT EXISTS users("
         "id TEXT PRIMARY KEY, "
         "name TEXT NOT NULL, "
-        "role INTEGER NOT NULL, "
+        "role INTEGER NOT NULL" 
         ");";
     char *errorMsg = nullptr;
 
